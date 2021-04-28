@@ -115,8 +115,8 @@ ui <- fluidPage(
                         </div>
                            ")
                     , h3("References")
-                    , tags$blockquote("Classifying chronic pain using multidimensional pain-agnostic symptom assessments and clustering analysis
-                    Gadi Gilam, Eric M. Cramer, Kenneth A. Webber II, Maisa S. Ziadni, Ming-Chih Kao, Sean C. Mackey
+                    , tags$blockquote("Classifying chronic pain using multidimensional pain-agnostic symptom assessments and clustering analysis\n
+                    Gadi Gilam, Eric M. Cramer, Kenneth A. Webber II, Maisa S. Ziadni, Ming-Chih Kao, Sean C. Mackey\n
                                       medRxiv 2021.04.21.21255885; doi: https://doi.org/10.1101/2021.04.21.21255885")
                 )
                 , tabPanel(
