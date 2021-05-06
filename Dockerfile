@@ -10,7 +10,16 @@ RUN echo "Acquire::Check-Valid-Until \"false\";\nAcquire::Check-Date \"false\";"
 # system libraries
 # Try to only install system libraries you actually need
 # Package Manager is a good resource to help discover system deps
-RUN apt-get update && apt-get install -y  
+#RUN apt-get update && apt-get install -y  
+RUN apt-get update && apt-get install -y  \
+    libxml2-dev \
+    libudunits2-dev \
+    libssh2-1-dev \
+    libcurl4-openssl-dev \
+    libsasl2-dev \
+    libv8-dev \
+    unixodbc-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # install R packages required 
 # Change the packages list to suit your needs
@@ -30,6 +39,7 @@ RUN R -e 'install.packages(c(\
 
 # copy the app directory into the image
 COPY ./shiny-app/* /srv/shiny-server/
+COPY ./shiny-app/www/cluster_pca_3d.png /srv/shiny-server/www/cluster_pca_3d.png
 
 # run app
 CMD ["/usr/bin/shiny-server"]

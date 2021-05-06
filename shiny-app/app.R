@@ -8,7 +8,7 @@
 #
 
 library(shiny)
-library(here)
+#library(here)
 library(tidyverse)
 library(ggplot2)
 library(plotly)
@@ -182,11 +182,10 @@ server <- function(input, output, session) {
     values <- reactiveValues(labeled_data = NULL)
     
     # read in points to plot
-    pca_res <- readRDS(here("data/pca.rds"))
-    pca_coords <- readRDS(here("data/pca_labeled.rds"))
-    
+    pca_res <- readRDS("pca.rds")
+
     # load the cluster centroids
-    centroids <- readRDS(here("data/centroids.rds"))
+    centroids <- readRDS("centroids.rds")
     
     # function to label new data
     centroid_classifier <- function(x, centers = centroids) {
@@ -384,7 +383,7 @@ server <- function(input, output, session) {
         },
         content = function(file) {
             write.csv(
-                readRDS(here("data/example_dataset.rds"))
+                readRDS("example_dataset.rds")
                 , file
                 , row.names = FALSE)
         }
